@@ -140,7 +140,7 @@ function Feed() {
 }
 
 export default Feed; */
-import React, { useState  } from 'react';
+import React, { useState } from 'react';
 import './Feed.css'; // Import your CSS file
 
 
@@ -150,7 +150,7 @@ function Feed() {
     const [imageUrl, setImageUrl] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    
+   
     const [submitted, setSubmitted] = useState(false);
 
     
@@ -160,7 +160,6 @@ function Feed() {
     const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
   
     // Fetch uploaded images on component mount
-   
     
 
   const handleDescriptionChange = (event) => {
@@ -253,8 +252,10 @@ function Feed() {
 
        {/* Display uploaded images */}
        
+      
     </div>
   );
 }
 
 export default Feed;
+
