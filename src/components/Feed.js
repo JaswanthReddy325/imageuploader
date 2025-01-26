@@ -161,32 +161,8 @@ function Feed() {
     const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
   
     // Fetch uploaded images on component mount
-    useEffect(() => {
-      fetchUploadedImages();
-    }, []);
-
-    const fetchUploadedImages = async () => {
-        try {
-            const response = await fetch(
-                `https://api.cloudinary.com/v1_1/${cloudName}/resources/image`,
-                {
-                  headers: {
-                    Authorization: `Basic ${btoa(`${apiKey}:${apiSecret}`)}`,
-                  },
-                }
-              );
-          if (!response.ok) {
-            throw new Error(`Failed to fetch images: ${response.status}`);
-          }
-          
-          const data = await response.json();
-          console.log(data);
-          setUploadedImages(data.resources);
-        } catch (error) {
-          console.error('Error fetching images:', error);
-          setError("Failed to load uploaded images.");
-        }
-      };
+   
+    
 
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
