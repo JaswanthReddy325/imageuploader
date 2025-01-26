@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
 const Navbar = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = async () => {
