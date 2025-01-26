@@ -140,7 +140,7 @@ function Feed() {
 }
 
 export default Feed; */
-import React, { useState,useEffect  } from 'react';
+import React, { useState  } from 'react';
 import './Feed.css'; // Import your CSS file
 
 
@@ -150,14 +150,13 @@ function Feed() {
     const [imageUrl, setImageUrl] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [uploadedImages, setUploadedImages] = useState([]); // Store uploaded images
+    
     const [submitted, setSubmitted] = useState(false);
 
     
 
     const cloudName = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
-    const apiKey = process.env.REACT_APP_CLOUDINARY_API_KEY;
-    const apiSecret = process.env.REACT_APP_CLOUDINARY_API_SECRET;
+    
     const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
   
     // Fetch uploaded images on component mount
@@ -253,19 +252,7 @@ function Feed() {
       )}
 
        {/* Display uploaded images */}
-       <div className="uploaded-images-container">
-        <h2>Previously Uploaded Images</h2>
-        <div className="image-grid">
-          {uploadedImages.length === 0 && !error && !loading && <p>No images uploaded yet.</p>}
-          {error && <p className="error-message">{error}</p>}
-          {uploadedImages.map((image) => (
-            <div key={image.asset_id} className="image-item">
-              <img src={image.secure_url} alt={image.public_id} />
-              {/* You can display other image metadata here if needed */}
-            </div>
-          ))}
-        </div>
-      </div>
+       
     </div>
   );
 }
