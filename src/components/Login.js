@@ -14,11 +14,7 @@ const Login = () => {
    
 
   // Redirect to home page if already authenticated (token exists)
-  useEffect(() => {
-    if (sessionStorage.getItem("jwt_token")) {
-      navigate('/home');
-    }
-  }, []);
+
 
   // Google login handler
   const handleGoogleLogin = async () => {
